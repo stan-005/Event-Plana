@@ -1,0 +1,32 @@
+<aside class="sidebar">
+  <div class="sidebar-header">
+    <div class="logo">
+      <img src="logo.webp" alt="Event-Plana Logo">
+      <span class="logo-text">Event Plana</span>
+    </div>
+  </div>
+  <nav class="sidebar-nav">
+    <ul>
+      <li><a routerLink="/admin">Dashboard</a></li>
+      <li><a routerLink="events">Manage Events</a></li>
+      <li><a routerLink="users">Manage Users</a></li>
+      <li><a routerLink="organizers">Manage Organizers</a></li>
+      <li><a routerLink="reports">Reports</a></li>
+      <li><a routerLink="settings">Settings</a></li>
+    </ul>
+  </nav>
+  <!-- Logout Button -->
+  <div class="logout-button-container">
+    <button (click)="openLogoutModal()">Logout</button>
+  </div>
+
+  <!-- Logout Confirmation Modal -->
+  <div *ngIf="showLogoutModal" class="modal-overlay">
+    <div class="modal">
+      <h3>Confirm Logout</h3>
+      <p>Are you sure you want to logout?</p>
+      <button (click)="confirmLogout()">Yes, Logout</button>
+      <button (click)="closeLogoutModal()">Cancel</button>
+    </div>
+  </div>
+</aside>
