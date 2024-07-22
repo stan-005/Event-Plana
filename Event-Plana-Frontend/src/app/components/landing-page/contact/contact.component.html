@@ -1,7 +1,8 @@
 <div class="contact-container">
   <h2>Contact Us</h2>
   <p>Have questions or need help? Reach out to us!</p>
-  <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+  <form action="https://formspree.io/f/manwnkzj"
+  method="POST" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="name">Name</label>
       <input id="name" formControlName="name" type="text" placeholder="Your Name">

@@ -1,0 +1,35 @@
+# Create a new event
+POST http://localhost:3000/api/events
+Content-Type: application/json
+
+{
+  "title": "School Ceremony",
+  "description": "Wedding Ceremony of John and Jane",
+  "date": "2024-08-01T19:00:00.000Z",
+  "location": "Central Park",
+  "ticketPrice": 150.0,
+  "organizerId": 2
+}
+
+### Get all events
+GET http://localhost:3000/api/events
+
+
+### Update Event
+PUT http://localhost:3000/api/events/1004
+Content-Type: application/json
+
+{
+  "title": "Wedding Ceremony",
+  "description": "Wedding Ceremony of John and Jane",
+  "date": "2024-08-15T12:00:00.000Z",
+  "location": "Nairobi Park",
+  "ticketPrice": 50
+}
+
+### Delete Event
+DELETE http://localhost:3000/api/events/1004
+
+### Get Event Statistics
+GET http://localhost:3000/api/events/statistics/1
+

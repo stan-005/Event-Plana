@@ -1,0 +1,21 @@
+# Login
+POST http://localhost:3000/api/users/login
+Content-Type: application/json
+
+{
+  "email": "agotistanley005@gmail.com",
+  "password": "password123"
+}
+
+### Get User Statistics
+GET http://localhost:3000/api/admin/user-statistics
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Niwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzIxMzgwMjU0LCJleHAiOjE3MjEzOTQ2NTR9.hVYZWIc6F_eSfaQ4W_UqFAPrWV7thvvip2hisFt64x8
+
+### Get Event Statistics
+GET http://localhost:3000/api/admin/event-statistics
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Niwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzIxMzgwMjU0LCJleHAiOjE3MjEzOTQ2NTR9.hVYZWIc6F_eSfaQ4W_UqFAPrWV7thvvip2hisFt64x8
+
+
+### Generate Reports
+GET http://localhost:3000/api/admin/reports
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Niwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzIxMzE3MTkxLCJleHAiOjE3MjEzMjA3OTF9.NxE-G1E3DaANWd2f132ImnsSXfys3sywfPbutRqc1rQ
