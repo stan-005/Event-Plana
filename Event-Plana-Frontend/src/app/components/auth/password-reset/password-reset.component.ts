@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router'; // Import Router
 import { HeaderComponent } from '../../shared/header/header.component';
 
 @Component({
@@ -12,8 +14,10 @@ import { HeaderComponent } from '../../shared/header/header.component';
 })
 export class ResetPasswordComponent {
   resetPasswordForm: FormGroup;
+  successMessage: string = '';
+  errorMessage: string = '';
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private http: HttpClient, private router: Router) { // Inject Router
     this.resetPasswordForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]]
     });
@@ -21,8 +25,24 @@ export class ResetPasswordComponent {
 
   onResetPassword() {
     if (this.resetPasswordForm.valid) {
-      console.log(this.resetPasswordForm.value);
-      // Add your reset password logic here
+      this.http.post('http://localhost:3000/api/users/password-reset/request', this.resetPasswordForm.value).subscribe({
+        next: (response: any) => {
+          this.successMessage = response.message;
+          this.resetPasswordForm.reset();
+          setTimeout(() => {
+            this.successMessage = '';
+            // Navigate to confirm-reset page
+            this.router.navigate(['/confirm-reset']);
+          }, 2000);
+        },
+        error: (err: any) => {
+          console.error('Password reset request error:', err);
+          this.errorMessage = err.error?.message || 'Password reset request failed. Please try again.';
+          setTimeout(() => {
+            this.errorMessage = '';
+          }, 2000);
+        }
+      });
     }
   }
 }

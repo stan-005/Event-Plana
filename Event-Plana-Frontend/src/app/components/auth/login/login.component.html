@@ -2,7 +2,7 @@
 <div class="login-container">
   <div class="login-card">
     <h2>Welcome Back to Event Plana</h2>
-    <h2>Login </h2>
+    <h2>Login</h2>
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
         <label for="email">Email</label>
@@ -27,3 +27,10 @@
     </div>
   </div>
 </div>
+
+<!-- Modal Component -->
+<app-modal 
+  [message]="modalMessage" 
+  [isVisible]="isModalVisible" 
+  (closeModal)="closeModal()">
+</app-modal>

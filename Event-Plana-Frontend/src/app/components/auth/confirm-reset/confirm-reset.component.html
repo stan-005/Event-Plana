@@ -1,0 +1,30 @@
+<app-header></app-header>
+<div class="confirm-reset-container">
+  <div class="confirm-reset-card">
+    <h2>Confirm Password Reset</h2>
+    <form [formGroup]="confirmResetForm" (ngSubmit)="onConfirmReset()">
+      <div class="form-group">
+        <label for="token">Reset Token</label>
+        <input id="token" type="text" formControlName="token">
+        <div *ngIf="confirmResetForm.get('token')?.invalid && confirmResetForm.get('token')?.touched" class="error">
+          <span *ngIf="confirmResetForm.get('token')?.errors?.['required']">Reset token is required</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="newPassword">New Password</label>
+        <input id="newPassword" type="password" formControlName="newPassword">
+        <div *ngIf="confirmResetForm.get('newPassword')?.invalid && confirmResetForm.get('newPassword')?.touched" class="error">
+          <span *ngIf="confirmResetForm.get('newPassword')?.errors?.['required']">New password is required</span>
+          <span *ngIf="confirmResetForm.get('newPassword')?.errors?.['minlength']">Password must be at least 6 characters long</span>
+        </div>
+      </div>
+      <button type="submit" class="btn-confirm-reset" [disabled]="confirmResetForm.invalid">Reset Password</button>
+    </form>
+    <div *ngIf="successMessage" class="success">{{ successMessage }}</div>
+    <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+    <div class="links">
+      <a href="/login">Login</a>
+      <a href="/password-reset">Request New Token</a>
+    </div>
+  </div>
+</div>

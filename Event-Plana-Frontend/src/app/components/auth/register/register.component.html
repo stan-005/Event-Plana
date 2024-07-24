@@ -6,11 +6,11 @@
     <p>Please sign up to create your account.</p>
     <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
       <div class="form-group">
-        <label for="name">Name</label>
-        <input id="name" type="text" formControlName="name">
-        <div *ngIf="registerForm.get('name')?.invalid && registerForm.get('name')?.touched" class="error">
-          <span *ngIf="registerForm.get('name')?.errors?.['required']">Name is required</span>
-          <span *ngIf="registerForm.get('name')?.errors?.['minlength']">Name must be at least 2 characters long</span>
+        <label for="username">Username</label>
+        <input id="username" type="text" formControlName="username">
+        <div *ngIf="registerForm.get('username')?.invalid && registerForm.get('username')?.touched" class="error">
+          <span *ngIf="registerForm.get('username')?.errors?.['required']">Username is required</span>
+          <span *ngIf="registerForm.get('username')?.errors?.['minlength']">Username must be at least 2 characters long</span>
         </div>
       </div>
       <div class="form-group">
@@ -36,3 +36,10 @@
     </div>
   </div>
 </div>
+
+<!-- Modal Component -->
+<app-modal 
+  [message]="modalMessage" 
+  [isVisible]="isModalVisible" 
+  (closeModal)="closeModal()">
+</app-modal>

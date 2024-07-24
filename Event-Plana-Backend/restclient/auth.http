@@ -3,8 +3,8 @@ POST http://localhost:3000/api/users/register
 Content-Type: application/json
 
 {
-  "username": "daniel",
-  "email": "gamesmy177@gmail.com",
+  "username": "agoti",
+  "email": "agotistanley@gmail.com",
   "password": "password123",
   "role": "user"
 }
@@ -16,6 +16,53 @@ POST http://localhost:3000/api/users/login
 Content-Type: application/json
 
 {
-  "email": "gamesmy177@gmail.com",
+  "email": "agotistanley@gmail.com",
   "password": "password123"
 }
+
+###
+
+# Request Password Reset
+POST http://localhost:3000/api/users/password-reset/request
+Content-Type: application/json
+
+{
+  "email": "agotistanley@gmail.com"
+}
+
+###
+
+# Reset Password
+POST http://localhost:3000/api/users/password-reset/reset
+Content-Type: application/json
+
+{
+  "token": "53d3e48efddbd063cc8a80fe78814affce4ca87e",
+  "newPassword": "new_password123"
+}
+
+###
+
+# Update Profile
+PUT http://localhost:3000/api/users/profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6Im9yZ2FuaXplciIsImlhdCI6MTcyMTczOTg4NSwiZXhwIjoxNzIxNzU0Mjg1fQ._OmA319-Z400l8QN-4Fm_CwBcFzEQ89kSvutsq33FP0
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="username"
+
+john_doe
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="email"
+
+john@gmail.com
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="password"
+
+password123
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="profileImage"; filename="profile.jpg"
+Content-Type: image/jpeg
+
+< ./path/to/your/profile.jpg
+------WebKitFormBoundary7MA4YWxkTrZu0gW--

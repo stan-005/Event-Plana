@@ -1,6 +1,6 @@
 // controllers/adminController.ts
 import { Request, Response } from 'express';
-import { AdminService } from '../services/adminService'; // Import AdminService directly
+import { AdminService } from '../services/adminService'; 
 
 const adminService = new AdminService(); // Instantiate AdminService here
 
@@ -30,7 +30,7 @@ export const adminController = {
     try {
       const { userId } = req.params;
       await adminService.deleteUser(Number(userId)); // Ensure userId is converted to number
-      res.status(204).send();
+      res.status(200).json({ message: 'User deleted successfully' }); // Success message
     } catch (error) {
       const err = error as Error;
       res.status(500).json({ message: err.message });

@@ -14,4 +14,3 @@ router.get('/event-statistics', authMiddleware, adminController.getEventStatisti
 router.get('/reports', authMiddleware, adminController.generateReports);
 
 export default router; // Export router as default
-

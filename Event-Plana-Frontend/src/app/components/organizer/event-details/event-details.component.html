@@ -1,0 +1,8 @@
+<div class="event-details-container" *ngIf="event">
+  <h2>{{ event.title }}</h2>
+  <img [src]="event.image" alt="{{ event.title }}">
+  <p>{{ event.description }}</p>
+  <p class="event-date">Date: {{ event.date | date: 'fullDate' }}</p>
+  <p class="event-location">Location: {{ event.location }}</p>
+  <p class="event-ticket-price">Ticket Price: {{ event.ticketPrice | currency }}</p>
+</div>

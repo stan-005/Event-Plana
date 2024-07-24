@@ -8,12 +8,15 @@ Content-Type: application/json
   "date": "2024-08-01T19:00:00.000Z",
   "location": "Central Park",
   "ticketPrice": 150.0,
+  "image": "https://img.freepik.com/free-photo/medium-shot-man-wearing-vr-glasses_23-2149126949.jpg?t=st=1721651145~exp=1721654745~hmac=74700c1776d1032fd859804e0866a3a146752fad08ff62fefd88124dbbaed2a0&w=996",
   "organizerId": 2
 }
 
 ### Get all events
 GET http://localhost:3000/api/events
 
+### Get event by ID
+GET http://localhost:3000/api/events/3
 
 ### Update Event
 PUT http://localhost:3000/api/events/1004
@@ -30,6 +33,8 @@ Content-Type: application/json
 ### Delete Event
 DELETE http://localhost:3000/api/events/1004
 
-### Get Event Statistics
+### Get Event Statistics for Organizer
 GET http://localhost:3000/api/events/statistics/1
 
+### Get Event Statistics for a Specific Event
+GET http://localhost:3000/api/events/statistics/event/1

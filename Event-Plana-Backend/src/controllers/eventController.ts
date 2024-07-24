@@ -23,3 +23,63 @@ export const addEvent = async (req: Request, res: Response) => {
     res.status(500).json({ error: message });
   }
 };
+
+export const updateEvent = async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const data = req.body;
+  try {
+    const updatedEvent = await eventService.updateEvent(Number(id), data);
+    res.json(updatedEvent);
+  } catch (error) {
+    const message = error instanceof Error ? error.message : 'An unknown error occurred';
+    res.status(500).json({ error: message });
+  }
+};
+
+export const deleteEvent = async (req: Request, res: Response) => {
+  const { id } = req.params;
+  try {
+    await eventService.deleteEvent(Number(id));
+    res.status(204).send();
+  } catch (error) {
+    const message = error instanceof Error ? error.message : 'An unknown error occurred';
+    res.status(500).json({ error: message });
+  }
+};
+
+export const getEventStatistics = async (req: Request, res: Response) => {
+  const { organizerId } = req.params;
+  try {
+    const stats = await eventService.getEventStatistics(Number(organizerId));
+    res.json(stats);
+  } catch (error) {
+    const message = error instanceof Error ? error.message : 'An unknown error occurred';
+    res.status(500).json({ error: message });
+  }
+};
+
+export const getEventStatisticsForEvent = async (req: Request, res: Response) => {
+  const { eventId } = req.params;
+  try {
+    const stats = await eventService.getStatisticsForEvent(Number(eventId));
+    res.json(stats);
+  } catch (error) {
+    const message = error instanceof Error ? error.message : 'An unknown error occurred';
+    res.status(500).json({ error: message });
+  }
+};
+
+export const getEventById = async (req: Request, res: Response) => {
+  const { id } = req.params;
+  try {
+    const event = await eventService.getEventById(Number(id));
+    if (event) {
+      res.status(200).json(event);
+    } else {
+      res.status(404).json({ error: 'Event not found' });
+    }
+  } catch (error) {
+    const message = error instanceof Error ? error.message : 'An unknown error occurred';
+    res.status(500).json({ error: message });
+  }
+};

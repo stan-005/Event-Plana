@@ -48,7 +48,24 @@ export class AdminService {
     });
   }
 
-  async deleteUser(userId: number) {
-    await prisma.user.delete({ where: { id: userId } });
-  }
-}
+  async deleteUser(userId: number): Promise<string> {
+    return prisma.$transaction(async (prisma) => {
+      // Delete all bookings associated with the user
+      await prisma.booking.deleteMany({
+        where: {
+          userId: userId,
+        },
+      });
+  
+      // Delete the user
+      await prisma.user.delete({
+        where: {
+          id: userId,
+        },
+      });
+  
+      // Return success message
+      return 'User deleted successfully';
+    });
+  }  
+}  

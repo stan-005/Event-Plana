@@ -14,22 +14,28 @@ import { EventsComponent } from './components/landing-page/events/events.compone
 import { BookingsComponent } from './components/user/bookings/bookings.component';
 import { UserProfileComponent } from './components/user/user-profile/user-profile.component';
 import { ManageUsersComponent } from './components/admin/manage-users/manage-users.component';
-import { ManageOrganizersComponent } from './components/admin/manage-organizers/manage-organizers.component';
-import { ReportsComponent } from './components/admin/reports/reports.component';
-import { SettingsComponent } from './components/admin/settings/settings.component';
-import { CreateEventComponent } from './components/organizer/create-event/create-event.component';
 import { DashboardContentComponent } from './components/user/dashboard-content/dashboard-content.component';
 import { OrganizerProfileComponent } from './components/organizer/organizer-profile/organizer-profile.component';
 import { AdminProfileComponent } from './components/admin/admin-profile/admin-profile.component';
+import { ConfirmResetComponent } from './components/auth/confirm-reset/confirm-reset.component';
+import { ManageEventsComponent } from './components/organizer/manage-events/manage-events.component';
+import { EventCreationComponent } from './components/organizer/event-creation/event-creation.component';
+import { EventEditComponent } from './components/organizer/event-edit/event-edit.component';
+import { EventDetailsComponent } from './components/organizer/event-details/event-details.component';
+import { OrganizerContentComponent } from './components/organizer/organizer-content/organizer-content.component';
 
 export const routes: Routes = [
   { path: '', component: LandingComponent },
   {path: 'home', component: HomeComponent},
   { path: 'about', component: AboutPageComponent },
   { path: 'events', component: EventPageComponent },
+  {path: 'events/create', component: EventCreationComponent},
+  {path: 'events/edit/:id', component: EventEditComponent},
+  {path: 'events/:id', component: EventDetailsComponent},
   { path: 'contact', component: ContactPageComponent },
   { path: 'login', component: LoginComponent },
   {path: 'register', component: RegisterComponent},
+  {path: 'confirm-reset', component: ConfirmResetComponent},
   {path: 'password-reset', component: ResetPasswordComponent},
 
 //USER ROUTES
@@ -45,18 +51,14 @@ export const routes: Routes = [
     {path:'dashboard',component:DashboardContentComponent},
     {path:'events',component:EventsComponent},
     {path: 'users', component: ManageUsersComponent},
-    {path: 'organizers', component: ManageOrganizersComponent},
-    {path: 'reports', component: ReportsComponent},
     {path: 'admin-profile', component: AdminProfileComponent},
-    {path: 'settings', component: SettingsComponent}
 
   ] },
 
   //ORGANIZER ROUTES
   { path: 'organizer', component: OrganizerDashboardComponent, children: [
-    {path:'dashboard',component:DashboardContentComponent},
-    {path:'events',component:EventsComponent},
-    {path: 'create-event', component: CreateEventComponent},
+    {path:'dashboard',component:OrganizerContentComponent},
+    {path:'manage-events',component:ManageEventsComponent},
     {path: 'organizer-profile', component: OrganizerProfileComponent}
   ]},
 
