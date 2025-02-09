@@ -1,1 +1,26 @@
-<p>admin-profile works!</p>
+<div class="profile-container">
+  <h2>Manage Your Profile</h2>
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="username">Username:</label>
+      <input id="username" formControlName="username" type="text" required>
+    </div>
+
+    <div>
+      <label for="email">Email:</label>
+      <input id="email" formControlName="email" type="email" required>
+    </div>
+
+    <div>
+      <label for="password">Password:</label>
+      <input id="password" formControlName="password" type="password" required>
+    </div>
+
+    <div>
+      <label for="profileImage">Profile Image:</label>
+      <input id="profileImage" type="file" (change)="onFileSelected($event)">
+    </div>
+
+    <button type="submit">Update Profile</button>
+  </form>
+</div>

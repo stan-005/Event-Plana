@@ -5,7 +5,7 @@
   "scripts": {
     "start:build": "nodemon ./dist/server.js",
     "start:run": "tsc -w",
-    "start": "concurrently \"npm run start:run\" \"npm run start:build\"",
+    "start": "concurrently \"npm run start:build\" \"npm run start:run\" ",
     "test": ""
   },
   "keywords": [],

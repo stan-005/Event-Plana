@@ -1,1 +1,40 @@
-<p>dashboard-content works!</p>
+<div class="dashboard-container">
+  <h2>Admin Dashboard</h2>
+
+  <div class="card-container">
+    <div class="card">
+      <h3>Total Events</h3>
+      <div class="card-content">
+        <p>{{ eventStatistics?.totalEvents }}</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Total Bookings</h3>
+      <div class="card-content">
+        <p>{{ eventStatistics?.totalBookings }}</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Revenue</h3>
+      <div class="card-content">
+        <p>${{ eventStatistics?.revenue }}</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Event Statistics for a Specific Event</h3>
+      <input type="number" [(ngModel)]="selectedEventId" placeholder="Enter Event ID" />
+      <button (click)="getSpecificEventStatistics()">Get Statistics</button>
+      <div class="card-content" *ngIf="specificEventStatistics">
+        <h4>{{ specificEventStatistics?.title }}</h4>
+        <p><strong>Total Bookings:</strong> {{ specificEventStatistics?.totalBookings }}</p>
+        <p><strong>Revenue:</strong> ${{ specificEventStatistics?.revenue }}</p>
+      </div>
+      <div class="card-content" *ngIf="!specificEventStatistics">
+        <p>No data available for the selected event.</p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -28,7 +28,7 @@ export const updateEvent = async (req: Request, res: Response) => {
   const { id } = req.params;
   const data = req.body;
   try {
-    const updatedEvent = await eventService.updateEvent(Number(id), data);
+    const updatedEvent = await eventService.updateEvent(Number(id), data); // Convert id to number
     res.json(updatedEvent);
   } catch (error) {
     const message = error instanceof Error ? error.message : 'An unknown error occurred';
@@ -39,7 +39,7 @@ export const updateEvent = async (req: Request, res: Response) => {
 export const deleteEvent = async (req: Request, res: Response) => {
   const { id } = req.params;
   try {
-    await eventService.deleteEvent(Number(id));
+    await eventService.deleteEvent(Number(id)); // Convert id to number
     res.status(204).send();
   } catch (error) {
     const message = error instanceof Error ? error.message : 'An unknown error occurred';
@@ -48,9 +48,9 @@ export const deleteEvent = async (req: Request, res: Response) => {
 };
 
 export const getEventStatistics = async (req: Request, res: Response) => {
-  const { organizerId } = req.params;
+  const { userId } = req.params;
   try {
-    const stats = await eventService.getEventStatistics(Number(organizerId));
+    const stats = await eventService.getEventStatistics(Number(userId)); // Convert userId to number
     res.json(stats);
   } catch (error) {
     const message = error instanceof Error ? error.message : 'An unknown error occurred';
@@ -61,7 +61,17 @@ export const getEventStatistics = async (req: Request, res: Response) => {
 export const getEventStatisticsForEvent = async (req: Request, res: Response) => {
   const { eventId } = req.params;
   try {
-    const stats = await eventService.getStatisticsForEvent(Number(eventId));
+    const stats = await eventService.getStatisticsForEvent(Number(eventId)); // Convert eventId to number
+    res.json(stats);
+  } catch (error) {
+    const message = error instanceof Error ? error.message : 'An unknown error occurred';
+    res.status(500).json({ error: message });
+  }
+};
+
+export const getAllEventStatistics = async (req: Request, res: Response) => {
+  try {
+    const stats = await eventService.getAllEventStatistics();
     res.json(stats);
   } catch (error) {
     const message = error instanceof Error ? error.message : 'An unknown error occurred';
@@ -72,7 +82,7 @@ export const getEventStatisticsForEvent = async (req: Request, res: Response) =>
 export const getEventById = async (req: Request, res: Response) => {
   const { id } = req.params;
   try {
-    const event = await eventService.getEventById(Number(id));
+    const event = await eventService.getEventById(Number(id)); // Convert id to number
     if (event) {
       res.status(200).json(event);
     } else {

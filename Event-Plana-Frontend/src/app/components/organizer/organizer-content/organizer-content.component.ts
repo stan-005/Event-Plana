@@ -13,7 +13,7 @@ import { EventStatistics } from '../../../models/event-statistics.model';
 })
 export class OrganizerContentComponent implements OnInit {
   eventStatistics: EventStatistics[] = [];
-  organizerId!: number; // Initialize as undefined initially
+  userId!: number; // Initialize as undefined initially
 
   constructor(
     private eventService: EventService,
@@ -21,19 +21,23 @@ export class OrganizerContentComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    // Subscribe to route params to get the userId
     this.route.paramMap.subscribe(params => {
-      const id = params.get('id');
+      const id = localStorage.getItem('userId');
       if (id) {
-        this.organizerId = +id; // Convert the string to a number
-        this.fetchEventStatistics();
+        this.userId = +id; // Convert the string to a number
+        this.fetchEventStatistics(); // Fetch statistics when ID is available
       }
     });
   }
 
   fetchEventStatistics(): void {
-    if (this.organizerId) {
-      this.eventService.getEventStatistics(this.organizerId).subscribe((statistics) => {
+    if (this.userId) {
+      // Call the service to get event statistics
+      this.eventService.getEventStatistics(this.userId).subscribe((statistics) => {
         this.eventStatistics = statistics;
+      }, (error) => {
+        console.error('Failed to fetch event statistics', error);
       });
     }
   }

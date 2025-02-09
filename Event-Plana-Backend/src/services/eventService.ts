@@ -24,20 +24,20 @@ export class EventService {
 
   async updateEvent(id: number, data: Partial<Event>): Promise<Event> {
     return prisma.event.update({
-      where: { id },
+      where: { id: Number(id) }, // Convert id to number
       data,
     });
   }
 
   async deleteEvent(id: number): Promise<Event> {
     return prisma.event.delete({
-      where: { id },
+      where: { id: Number(id) }, // Convert id to number
     });
   }
 
-  async getEventStatistics(organizerId: number) {
+  async getEventStatistics(userId: number) {
     const events = await prisma.event.findMany({
-      where: { organizerId },
+      where: { organizerId: Number(userId) }, // Convert userId to number
       include: {
         bookings: true,
       },
@@ -53,7 +53,7 @@ export class EventService {
 
   async getStatisticsForEvent(eventId: number) {
     const event = await prisma.event.findUnique({
-      where: { id: eventId },
+      where: { id: Number(eventId) }, // Convert eventId to number
       include: {
         bookings: true,
       },
@@ -71,9 +71,24 @@ export class EventService {
     };
   }
 
+  async getAllEventStatistics() {
+    const events = await prisma.event.findMany({
+      include: {
+        bookings: true,
+      },
+    });
+
+    return events.map(event => ({
+      eventId: event.id,
+      title: event.title,
+      totalBookings: event.bookings.length,
+      revenue: event.bookings.reduce((acc, booking) => acc + event.ticketPrice, 0),
+    }));
+  }
+
   async getEventById(id: number): Promise<Event | null> {
     return prisma.event.findUnique({
-      where: { id },
+      where: { id: Number(id) }, // Convert id to number
     });
   }
 }

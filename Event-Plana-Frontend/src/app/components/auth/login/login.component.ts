@@ -30,21 +30,29 @@ export class LoginComponent {
       this.authService.login(this.loginForm.value).subscribe(
         (response: any) => {
           console.log('Login response:', response);
-          
-          const userRole = response.user.role; // Assuming response contains user role
-          console.log(userRole);
-          
+
+          const userRole = response.user?.role; // Ensure role exists
+          const userId = response.user?.id; // Use id for user or organizerId
+          if (userId) {
+            localStorage.setItem('userId', userId);
+          }
+
           // Show success modal
           this.showModal('Login successful');
-          
+
           // Navigate based on role after a short delay to show the modal
           setTimeout(() => {
             if (userRole === 'user') {
-              this.router.navigate(['/user/dashboard']);
+              this.router.navigate(['/user/events']);
             } else if (userRole === 'admin') {
               this.router.navigate(['/admin/dashboard']);
             } else if (userRole === 'organizer') {
-              this.router.navigate(['/organizer/dashboard']);
+              if (userId) {
+                this.router.navigate(['/organizer/dashboard']);
+              } else {
+                console.error('Organizer ID is missing');
+                this.showModal('Organizer ID is missing');
+              }
             } else {
               console.error('Unknown role');
             }

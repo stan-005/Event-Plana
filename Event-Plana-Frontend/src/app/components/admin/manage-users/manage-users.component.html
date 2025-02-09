@@ -1,1 +1,26 @@
-<p>manage-users works!</p>
+<div class="manage-users-container">
+  <h2>Manage Users</h2>
+  <table class="manage-users-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.id }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.role }}</td>
+        <td>
+          <button class="action-btn user-btn" (click)="updateUserRole(user.id, 'user')">Set as User</button>
+          <button class="action-btn organizer-btn" (click)="updateUserRole(user.id, 'organizer')">Set as Organizer</button>
+          <button class="action-btn admin-btn" (click)="updateUserRole(user.id, 'admin')">Set as Admin</button>
+          <button class="action-btn delete-btn" (click)="deleteUser(user.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -3,12 +3,12 @@ POST http://localhost:3000/api/events
 Content-Type: application/json
 
 {
-  "title": "School Ceremony",
-  "description": "Wedding Ceremony of John and Jane",
+  "title": "Iphone 16 Launch",
+  "description": "Be the first to use the latest Iphone",
   "date": "2024-08-01T19:00:00.000Z",
-  "location": "Central Park",
-  "ticketPrice": 150.0,
-  "image": "https://img.freepik.com/free-photo/medium-shot-man-wearing-vr-glasses_23-2149126949.jpg?t=st=1721651145~exp=1721654745~hmac=74700c1776d1032fd859804e0866a3a146752fad08ff62fefd88124dbbaed2a0&w=996",
+  "location": "Apple Gaming Arena",
+  "ticketPrice": 100.0,
+  "image": "https://i.pinimg.com/564x/c3/09/c3/c309c34a7901c8a38702d482ef421f15.jpg",
   "organizerId": 2
 }
 
@@ -16,25 +16,29 @@ Content-Type: application/json
 GET http://localhost:3000/api/events
 
 ### Get event by ID
-GET http://localhost:3000/api/events/3
+GET http://localhost:3000/api/events/1
 
 ### Update Event
-PUT http://localhost:3000/api/events/1004
+PUT http://localhost:3000/api/events/1003
 Content-Type: application/json
 
 {
-  "title": "Wedding Ceremony",
-  "description": "Wedding Ceremony of John and Jane",
+  "title": "Crypto Conference",
+  "description": "Learn about the future of money",
   "date": "2024-08-15T12:00:00.000Z",
-  "location": "Nairobi Park",
-  "ticketPrice": 50
+  "location": "Times Tower",
+  "ticketPrice": 500,
+  "image": "https://i.pinimg.com/564x/81/78/4e/81784e304f80f3f9801d17335717ea13.jpg"
 }
 
 ### Delete Event
-DELETE http://localhost:3000/api/events/1004
+DELETE http://localhost:3000/api/events/3003
 
 ### Get Event Statistics for Organizer
 GET http://localhost:3000/api/events/statistics/1
 
 ### Get Event Statistics for a Specific Event
 GET http://localhost:3000/api/events/statistics/event/1
+
+### Get Event Statistics for All Events
+GET http://localhost:3000/api/events/statistics

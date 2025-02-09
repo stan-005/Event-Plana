@@ -6,17 +6,19 @@ import {
   deleteEvent,
   getEventStatistics,
   getEventStatisticsForEvent,
-  getEventById // Import the new controller method
+  getEventById,
+  getAllEventStatistics // Import the new controller method
 } from '../controllers/eventController';
 
 const router = Router();
 
 router.get('/', getEvents);
 router.post('/', addEvent);
-router.get('/:id', getEventById); // New route for getting event by ID
+router.get('/:id', getEventById);
 router.put('/:id', updateEvent);
 router.delete('/:id', deleteEvent);
-router.get('/statistics/:organizerId', getEventStatistics);
-router.get('/statistics/event/:eventId', getEventStatisticsForEvent); // Route for specific event statistics
+router.get('/statistics/event/:eventId', getEventStatisticsForEvent); // Ensure this is before /statistics/:userId
+router.get('/statistics/:userId', getEventStatistics);
+router.get('/statistics', getAllEventStatistics); // New route for getting statistics for all events
 
 export default router;

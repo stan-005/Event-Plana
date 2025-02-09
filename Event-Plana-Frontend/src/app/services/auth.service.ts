@@ -12,18 +12,21 @@ export class AuthService {
 
   // Register a new user
   register(user: { username: string; email: string; password: string }): Observable<any> {
-    return this.http.post(`${this.baseUrl}/register`, user);
+    return this.http.post<any>(`${this.baseUrl}/register`, user);
   }
 
   // Login with user credentials
   login(credentials: { email: string; password: string }): Observable<any> {
-    return this.http.post(`${this.baseUrl}/login`, credentials);
-  }
-  requestPasswordReset(email: string): Observable<any> {
-    return this.http.post(`${this.baseUrl}/password-reset/request`, { email });
+    return this.http.post<any>(`${this.baseUrl}/login`, credentials);
   }
 
+  // Request password reset
+  requestPasswordReset(email: string): Observable<any> {
+    return this.http.post<any>(`${this.baseUrl}/password-reset/request`, { email });
+  }
+
+  // Confirm password reset
   confirmPasswordReset(token: string, newPassword: string): Observable<any> {
-    return this.http.post(`${this.baseUrl}/password-reset/reset`, { token, newPassword });
+    return this.http.post<any>(`${this.baseUrl}/password-reset/reset`, { token, newPassword });
   }
 }

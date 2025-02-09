@@ -9,35 +9,34 @@ Content-Type: application/json
 
 ### Get User Statistics
 GET http://localhost:3000/api/admin/user-statistics
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Niwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzIxODI2NzM2LCJleHAiOjE3MjE4NDExMzZ9.Zg-o2YWknuaLmQL2uGQDz5TR2F5_T8Vbskp-iE1UuWY
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Niwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzIxODgxMDA0LCJleHAiOjE3MjE4OTU0MDR9.YDjBwAqdHBP1U_AvmkrDYrcw-ghL1SGhxmgtKOg8qGI
 
 ### Get Event Statistics Summary for all events
 GET http://localhost:3000/api/admin/event-statistics
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Niwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzIxODI2NzM2LCJleHAiOjE3MjE4NDExMzZ9.Zg-o2YWknuaLmQL2uGQDz5TR2F5_T8Vbskp-iE1UuWY
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Niwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzIxODgxMDA0LCJleHAiOjE3MjE4OTU0MDR9.YDjBwAqdHBP1U_AvmkrDYrcw-ghL1SGhxmgtKOg8qGI
 
 ### Get Event Statistics for a Specific Event
 GET http://localhost:3000/api/events/statistics/event/1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Niwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzIxNjU4MTAwLCJleHAiOjE3MjE2NzI1MDB9.z-QyASsex22b4MbnK9v_JMhB6-IrLV-4e1KQje_Ecvk
-
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Niwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzIxODgxMDA0LCJleHAiOjE3MjE4OTU0MDR9.YDjBwAqdHBP1U_AvmkrDYrcw-ghL1SGhxmgtKOg8qGI
 
 ### Get All Users
 GET http://localhost:3000/api/admin/users
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Niwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzIxODI2NzM2LCJleHAiOjE3MjE4NDExMzZ9.Zg-o2YWknuaLmQL2uGQDz5TR2F5_T8Vbskp-iE1UuWY
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Niwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzIxODgxMDA0LCJleHAiOjE3MjE4OTU0MDR9.YDjBwAqdHBP1U_AvmkrDYrcw-ghL1SGhxmgtKOg8qGI
 
 ### Update User Role
 PUT http://localhost:3000/api/admin/users/role
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Niwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzIxODI2NzM2LCJleHAiOjE3MjE4NDExMzZ9.Zg-o2YWknuaLmQL2uGQDz5TR2F5_T8Vbskp-iE1UuWY
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Niwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzIxODgxMDA0LCJleHAiOjE3MjE4OTU0MDR9.YDjBwAqdHBP1U_AvmkrDYrcw-ghL1SGhxmgtKOg8qGI
 
 {
   "userId": 5009,
-  "role": "organizer"
+  "role": "user"
 }
 
 ### Delete User
-DELETE http://localhost:3000/api/admin/users/1009
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Niwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzIxODI2NzM2LCJleHAiOjE3MjE4NDExMzZ9.Zg-o2YWknuaLmQL2uGQDz5TR2F5_T8Vbskp-iE1UuWY
+DELETE http://localhost:3000/api/admin/users/3010
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Niwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzIxODgxMDA0LCJleHAiOjE3MjE4OTU0MDR9.YDjBwAqdHBP1U_AvmkrDYrcw-ghL1SGhxmgtKOg8qGI
 
 ### Generate Reports
 GET http://localhost:3000/api/admin/reports
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Niwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzIxODI2NzM2LCJleHAiOjE3MjE4NDExMzZ9.Zg-o2YWknuaLmQL2uGQDz5TR2F5_T8Vbskp-iE1UuWY
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Niwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzIxODgxMDA0LCJleHAiOjE3MjE4OTU0MDR9.YDjBwAqdHBP1U_AvmkrDYrcw-ghL1SGhxmgtKOg8qGI

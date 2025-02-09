@@ -29,8 +29,8 @@ export class EventService {
     return this.http.delete<void>(`${this.apiUrl}/${eventId}`);
   }
 
-  getEventStatistics(organizerId: number): Observable<EventStatistics[]> {
-    return this.http.get<EventStatistics[]>(`${this.apiUrl}/statistics/${organizerId}`);
+  getEventStatistics(userId: number): Observable<EventStatistics[]> {
+    return this.http.get<EventStatistics[]>(`${this.apiUrl}/statistics/${userId}`);
   }
 
   getEventStatisticsForEvent(eventId: number): Observable<EventStatistics> {

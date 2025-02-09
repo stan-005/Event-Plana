@@ -1,0 +1,102 @@
+/* Container styles */
+.manage-users-container {
+  margin: 2rem auto;
+  padding: 2rem;
+  max-width: 1200px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Title styles */
+.manage-users-container h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #4CAF50; /* Green header */
+  margin-bottom: 1.5rem;
+  font-family: 'Arial, sans-serif';
+  border-bottom: 2px solid #4CAF50; /* Green border */
+  padding-bottom: 0.5rem;
+}
+
+/* Table styles */
+.manage-users-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Arial, sans-serif';
+}
+
+.manage-users-table thead {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.manage-users-table th, .manage-users-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.manage-users-table th {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.manage-users-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.manage-users-table tr:hover {
+  background-color: #53bd6df6; /* Light green hover */
+}
+
+/* Button styles */
+.action-btn {
+  padding: 8px 12px;
+  margin: 0 4px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.action-btn:hover {
+  transform: translateY(-2px);
+}
+
+.user-btn {
+  background-color: #007bff;
+  color: white;
+}
+
+.user-btn:hover {
+  background-color: #0056b3;
+}
+
+.organizer-btn {
+  background-color: #28a745;
+  color: white;
+}
+
+.organizer-btn:hover {
+  background-color: #218838;
+}
+
+.admin-btn {
+  background-color: #ffc107;
+  color: white;
+}
+
+.admin-btn:hover {
+  background-color: #e0a800;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+  color: white;
+}
+
+.delete-btn:hover {
+  background-color: #c82333;
+}

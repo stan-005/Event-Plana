@@ -8,7 +8,7 @@
         <!-- <p class="category">{{ event.category }}</p> -->
         <p class="date-location">{{ event.date }} | {{ event.location }}</p>
         <p class="description">{{ event.description }}</p>
-        <button class="btn-details">View Details</button>
+        <button class="btn-details" routerLink="/events/{{event.id}}">View Details</button>
       </div>
     </div>
   </div>
